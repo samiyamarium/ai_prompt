@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Prompting 2026 - Part 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fff9c4, #c8e6c9);
+        color: #1b1b1b;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(135deg, #fdd835, #81c784);
+        color: #1b5e20;
+        font-size: 28px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-top: 8px;
+        font-weight: normal;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-left: 7px solid #66bb6a;
+        padding: 20px;
+        border-radius: 14px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        border-left: 7px solid #fdd835;
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: #2e7d32;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 3px 8px;
+        font-size: 12px;
+        border-radius: 6px;
+        margin-top: 8px;
+        background: #fff9c4;
+        color: #33691e;
+    }
+
+    /* Popup */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 16px;
+        width: 85%;
+        max-width: 650px;
+        animation: pop 0.25s ease-in-out;
+        border-left: 8px solid #81c784;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+        float: right;
+        font-size: 22px;
+        cursor: pointer;
+        color: red;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: #c8e6c9;
+        color: #1b5e20;
+        margin-top: 30px;
+    }
+
+    .highlight {
+        background: #fff9c4;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    AI Prompting 2026 — Part 1: How AI Knows Things
+    <div class="subtitle">Novice vs Power User • Pretrained Knowledge • Retrieval Modes</div>
+</header>
+
+<div class="container">
+
+<div class="grid">
+
+    <div class="card" onclick="openPopup('p1')">
+        <h3>Novice vs Power User</h3>
+        <span class="tag">Prompt Behavior</span>
+        <p>How users interact differently with AI systems</p>
+    </div>
+
+    <div class="card" onclick="openPopup('p2')">
+        <h3>Pretrained Knowledge</h3>
+        <span class="tag">Core Model Memory</span>
+        <p>How AI stores and generates knowledge internally</p>
+    </div>
+
+    <div class="card" onclick="openPopup('p3')">
+        <h3>How AI Knows Things</h3>
+        <span class="tag">Technical Core</span>
+        <p>Tokens, weights, and probabilistic prediction</p>
+    </div>
+
+    <div class="card" onclick="openPopup('p4')">
+        <h3>Retrieval Mode 1</h3>
+        <span class="tag">Pretrained</span>
+        <p>Static knowledge from training data</p>
+    </div>
+
+    <div class="card" onclick="openPopup('p5')">
+        <h3>Retrieval Mode 2</h3>
+        <span class="tag">Web Search</span>
+        <p>Real-time external information access</p>
+    </div>
+
+    <div class="card" onclick="openPopup('p6')">
+        <h3>Retrieval Mode 3</h3>
+        <span class="tag">Deep Research</span>
+        <p>Multi-step reasoning + synthesis across sources</p>
+    </div>
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">×</span>
+        <div id="popup-text"></div>
+    </div>
+</div>
+
+<footer>
+    AI does not “know” facts — it reconstructs answers using pretrained weights + context + retrieval systems.
+</footer>
+
+<script>
+function openPopup(id) {
+
+    const data = {
+
+        p1: `
+        <b>Novice:</b> vague prompts, no structure, unpredictable outputs.<br><br>
+        <b>Power User:</b> structured prompts with role, context, constraints, and output format.<br><br>
+        <b>Key Insight:</b> AI behaves like a programmable system, not a chatbot.
+        `,
+
+        p2: `
+        AI stores knowledge in <span class="highlight">neural network weights</span>, not databases.<br><br>
+        It learns statistical relationships between tokens during training.<br><br>
+        Knowledge is <b>compressed, probabilistic, and non-explicit</b>.
+        `,
+
+        p3: `
+        AI works in 3 steps:<br>
+        1. Tokenization<br>
+        2. Neural network processing<br>
+        3. Next-token prediction<br><br>
+        Output is generated word-by-word using probability distributions.
+        `,
+
+        p4: `
+        <b>Pretrained Mode:</b><br>
+        Uses internal learned weights only.<br>
+        No internet, no updates.<br><br>
+        Best for general knowledge and reasoning patterns.
+        `,
+
+        p5: `
+        <b>Web Search Mode:</b><br>
+        Retrieves live external data.<br>
+        Used for current events, facts, and updates.<br><br>
+        Extends model beyond training cutoff.
+        `,
+
+        p6: `
+        <b>Deep Research Mode:</b><br>
+        Combines multiple sources + reasoning steps.<br>
+        Synthesizes structured conclusions.<br><br>
+        Used for analysis, reports, and complex decision-making.
+        `
+    };
+
+    document.getElementById("popup-text").innerHTML = data[id];
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
